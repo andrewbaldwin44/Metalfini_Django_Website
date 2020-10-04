@@ -26,6 +26,7 @@ const GlobalStyles = createGlobalStyle`
   figure, figcaption, footer, header, hgroup,
   menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
+    font-family: 'Roboto', sans-serif;
   	margin: 0;
   	padding: 0;
   	border: 0;
@@ -40,6 +41,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
+    font-family: 'Roboto', sans-serif;
   	line-height: 1;
     width: 100vw;
     font-size: 18px;
