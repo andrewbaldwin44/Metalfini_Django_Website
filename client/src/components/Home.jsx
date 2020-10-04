@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Home() {
+function Homepage() {
   return (
     <>
-      Home
+      <p>Metalfini Homepage</p>
     </>
-  )
-}
+  );
+};
 
-export default Home;
+export default Homepage;
