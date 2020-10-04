@@ -2,7 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
   :root {
-
+    --navbar-height: 60px;
+    --navbar-padding: 300px;
   }
 
   *,
@@ -28,7 +29,7 @@ const GlobalStyles = createGlobalStyle`
   	margin: 0;
   	padding: 0;
   	border: 0;
-  	font-size: 18px;
+  	font-size: 16px;
   	vertical-align: baseline;
   }
 
@@ -41,7 +42,6 @@ const GlobalStyles = createGlobalStyle`
   body {
   	line-height: 1;
     width: 100vw;
-    height: 100vh;
     font-size: 18px;
     overflow-x: hidden;
   }
