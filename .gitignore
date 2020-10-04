@@ -1,6 +1,14 @@
-/venv
+# Project configuration
+.env
+
+# Development Database
 /backend/db.sqlite3
 
+# Django
+/venv
 __pycache__/
 
-.env
+# React
+/build
+yarn-error.log*
+node_modules/
