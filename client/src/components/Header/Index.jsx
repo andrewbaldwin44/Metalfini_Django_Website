@@ -1,12 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  const language = useSelector((state) => state.language.language);
+  const languageChange = language === 'English' ? 'Français' : 'English';
+
   return (
     <>
       <Logo to='/'>
         <h1>Metalfini</h1>
+        <button>{languageChange}</button>
       </Logo>
 
       <Navbar>
@@ -25,6 +30,18 @@ const Header = () => {
     </>
   );
 };
+
+const Logo = styled(Link)`
+  display: flex;
+  justify-content: space-between;
+  margin: 10px var(--navbar-padding);
+  margin-top: 30px;
+
+  h1 {
+    font-size: 2.4em;
+    font-weight: bold;
+  }
+`;
 
 const Navbar = styled.div`
   display: flex;
@@ -46,16 +63,6 @@ const NavigationGroup = styled.div`
 
   a {
     width: 120px;
-  }
-`;
-
-const Logo = styled(Link)`
-  display: flex;
-  margin: 30px 0 10px var(--navbar-padding);
-
-  h1 {
-    font-size: 2.4em;
-    font-weight: bold;
   }
 `;
 
