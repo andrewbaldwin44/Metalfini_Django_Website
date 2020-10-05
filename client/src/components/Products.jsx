@@ -2,14 +2,18 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
+import { getLanguageSpecific } from '../utils/index'
+
 function Products() {
   const products = useSelector((state) => state.products.products);
-
-  console.log(products)
+  const language = useSelector((state) => state.language.language);
 
   return (
     <Wrapper>
-      {products && products.map(({ id, name, price, description, image }) => {
+      {products && products.map(product => {
+        const { id, price, image } = product;
+        const { name, description } = getLanguageSpecific(product, language);
+
         return (
           <Product key={`product${id}`}>
             <img src={image} alt={name} />
