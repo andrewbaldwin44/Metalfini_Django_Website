@@ -5,12 +5,13 @@ import { NavLink, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { changeLanguage } from '../../actions';
+import { getOpposite } from '../../utils/index';
 
 const Header = () => {
   const dispatch = useDispatch();
 
   const language = useSelector((state) => state.language.language);
-  const languageOpposite = language === 'English' ? 'Français' : 'English';
+  const languageOpposite = getOpposite(language);
 
   const handleLanguageChange = useCallback(() => {
     dispatch(changeLanguage(languageOpposite));
