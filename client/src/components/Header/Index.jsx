@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { NavLink, Link } from 'react-router-dom';
+
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { changeLanguage } from '../../actions';
 
 const Header = () => {
+  const dispatch = useDispatch();
+
   const language = useSelector((state) => state.language.language);
-  const languageChange = language === 'English' ? 'Français' : 'English';
+  const languageOpposite = language === 'English' ? 'Français' : 'English';
+
+  const handleLanguageChange = useCallback(() => {
+    dispatch(changeLanguage(languageOpposite));
+  }, [dispatch, languageOpposite]);
 
   return (
     <>
       <Logo to='/'>
         <h1>Metalfini</h1>
-        <button>{languageChange}</button>
+        <button onClick={handleLanguageChange}>
+          {languageOpposite}
+        </button>
       </Logo>
 
       <Navbar>
