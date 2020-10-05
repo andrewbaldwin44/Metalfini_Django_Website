@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { changeLanguage } from '../../actions';
 import { getOpposite } from '../../utils/index';
+import { HEADER } from '../../constants/language';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,8 @@ const Header = () => {
   const handleLanguageChange = useCallback(() => {
     dispatch(changeLanguage(languageOpposite));
   }, [dispatch, languageOpposite]);
+
+  const { home, about, products, contact } = HEADER[language];
 
   return (
     <>
@@ -29,16 +32,16 @@ const Header = () => {
       <Navbar>
         <NavigationGroup>
           <NavLink exact to="/">
-            Home
+            {home}
           </NavLink>
           <NavLink exact to="/about">
-            About
+            {about}
           </NavLink>
           <NavLink exact to="/products">
-            Products
+            {products}
           </NavLink>
           <NavLink exact to="/contact">
-            Contact
+            {contact}
           </NavLink>
         </NavigationGroup>
       </Navbar>
@@ -77,7 +80,7 @@ const NavigationGroup = styled.div`
   font-size: 1.1em;
 
   a {
-    width: 120px;
+    margin-right: 70px;
   }
 `;
 
