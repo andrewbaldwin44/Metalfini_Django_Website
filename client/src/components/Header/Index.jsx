@@ -25,6 +25,9 @@ const Header = () => {
           <NavLink exact to="/products">
             Products
           </NavLink>
+          <NavLink exact to="/contact">
+            Contact
+          </NavLink>
         </NavigationGroup>
       </Navbar>
     </>
