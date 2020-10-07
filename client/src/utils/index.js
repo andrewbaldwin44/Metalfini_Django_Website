@@ -21,3 +21,7 @@ export function getLanguageSpecific(product, language) {
     }
   }
 }
+
+export function getProductByID(products, id) {
+  return products.find(product => Number(product.id) === Number(id));
+}

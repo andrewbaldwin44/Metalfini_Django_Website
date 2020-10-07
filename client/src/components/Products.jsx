@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import { getLanguageSpecific } from '../utils/index'
+import { getLanguageSpecific } from '../utils/index';
 
 function Products() {
   const products = useSelector((state) => state.products.products);
@@ -15,7 +16,7 @@ function Products() {
         const { name, description } = getLanguageSpecific(product, language);
 
         return (
-          <Product key={`product${id}`}>
+          <Product key={`product${id}`} to={`/products/${id}`}>
             <img src={image} alt={name} />
             <div className='details'>
               <h3>{name}</h3>
@@ -34,7 +35,7 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-const Product = styled.div`
+const Product = styled(Link)`
   display: flex;
   align-items: center;
   flex-direction: column;

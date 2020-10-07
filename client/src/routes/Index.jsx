@@ -8,6 +8,8 @@ import Products from '../components/Products';
 import Contact from '../components/Contact';
 import FourOhFour from '../components/FourOhFour';
 
+import ProductDetails from '../components/ProductDetails';
+
 function Routes({ children }) {
   return (
     <Router>
@@ -17,6 +19,7 @@ function Routes({ children }) {
           <Route path='/' exact component={Home} />
           <Route path='/about' exact component={About} />
           <Route path='/products' exact component={Products} />
+          <Route path='/products/:id' exact component={ProductDetails} />
           <Route path='/contact' exact component={Contact} />
           <Route path='/*' exact component={FourOhFour} />
         </Switch>
