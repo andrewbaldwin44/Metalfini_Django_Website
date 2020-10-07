@@ -2,8 +2,7 @@ import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { NavLink, Link } from 'react-router-dom';
 
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeLanguage } from '../../actions';
 import { getOpposite } from '../../utils/index';
 import { HEADER } from '../../constants/language';

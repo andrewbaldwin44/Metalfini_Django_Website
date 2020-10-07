@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import { getLanguageSpecific } from '../utils/index';
+import { getLanguageSpecific, formatPrice } from '../utils/index';
 
 function Products() {
   const products = useSelector((state) => state.products.products);
@@ -13,15 +13,14 @@ function Products() {
     <Wrapper>
       {products && products.map(product => {
         const { id, price, image } = product;
-        const { name, description } = getLanguageSpecific(product, language);
+        const { name } = getLanguageSpecific(product, language);
 
         return (
           <Product key={`product${id}`} to={`/products/${id}`}>
             <img src={image} alt={name} />
             <div className='details'>
               <h3>{name}</h3>
-              <p>{description}</p>
-              <span>${price}</span>
+              <span>{formatPrice(price, language)}</span>
             </div>
           </Product>
         )
@@ -53,12 +52,17 @@ const Product = styled(Link)`
 
   .details {
     display: flex;
-    justify-content: space-evenly;
     flex-direction: column;
     align-self: flex-start;
+    line-height: 1.3;
 
     height: 100%;
+    margin-left: 2px;
     padding-top: 20px;
+
+    h3 {
+      font-size: 1.1em;
+    }
   }
 `;
 
