@@ -25,3 +25,12 @@ export function getLanguageSpecific(product, language) {
 export function getProductByID(products, id) {
   return products.find(product => Number(product.id) === Number(id));
 }
+
+export function formatPrice(price, language) {
+  if (language === 'English') {
+    return `CAN $${price}`;
+  }
+  else {
+    return `CAN ${price}$`;
+  }
+}

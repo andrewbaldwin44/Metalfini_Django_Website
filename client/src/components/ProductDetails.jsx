@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
-import { getProductByID, getLanguageSpecific } from '../utils/index';
+import { useSelector } from 'react-redux';
+import { PRODUCT_DETAILS } from '../constants/language';
+
+import { getProductByID, getLanguageSpecific, formatPrice } from '../utils/index';
 
 function ProductDetails() {
   const { id: productID } = useParams();
 
   const products = useSelector((state) => state.products.products);
   const language = useSelector((state) => state.language.language);
+  const { contact } = PRODUCT_DETAILS[language];
 
   const [productData, setProductData] = useState(null);
 
@@ -28,10 +30,10 @@ function ProductDetails() {
           <img src={image} alt={name} />
           <div>
             <h3>{name}</h3>
-            <span>CAN ${price}</span>
+            <span>{formatPrice(price, language)}</span>
             <p>{description}</p>
             <Contact to='/contact'>
-              Contact Us for Order Inquiries
+              {contact}
             </Contact>
           </div>
         </Product>
@@ -88,8 +90,11 @@ const Contact = styled(Link)`
   justify-content: center;
 
   color: white;
+  text-align: center;
+  line-height: 1.2;
   width: 100%;
-  height: 50px;
+  height: 60px;
+  padding: 10px;
   background-color: dodgerblue;
 `;
 

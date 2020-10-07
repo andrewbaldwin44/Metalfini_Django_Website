@@ -12,3 +12,12 @@ export const HEADER = {
     contact: 'Contact'
   }
 }
+
+export const PRODUCT_DETAILS = {
+  English: {
+    contact: 'Contact Us for Order Inquiries',
+  },
+  Français: {
+    contact: 'Contactez-Nous Pour les Enquête de Commande'
+  }
+}
